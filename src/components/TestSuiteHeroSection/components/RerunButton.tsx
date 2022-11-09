@@ -4,9 +4,7 @@ import React from 'react'
 
 const StyledRerunButton = styled(Button)({
   color: 'white',
-  width: '170px',
-  height: '170px',
-  borderRadius: '50%',
+  padding: '0.5rem 2rem',
 })
 
 const RerunButton = () => {
@@ -14,9 +12,10 @@ const RerunButton = () => {
     <Box
       sx={{
         display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+        justifyContent: 'flex-end',
+        alignItems: 'flex-end',
         height: '100%',
+        padding: '1rem',
       }}
     >
       <StyledRerunButton variant="contained">Rerun</StyledRerunButton>
