@@ -1,6 +1,8 @@
 import CssBaseline from '@mui/material/CssBaseline'
 import React from 'react'
 
+import Dashboard from './components/Dashboard'
+
 function App() {
   return (
     <>
@@ -11,7 +13,9 @@ function App() {
           minWidth: '100vw',
           minHeight: '100vh',
         }}
-      ></div>
+      >
+        <Dashboard />
+      </div>
     </>
   )
 }
