@@ -1,13 +1,12 @@
 import Box from '@mui/material/Box'
-import Button from '@mui/material/Button'
-import React from 'react'
+import Paper from '@mui/material/Paper'
 
 import TestSuiteHeroImg from './assets/hero_image.jpg'
 import RerunButton from './components/RerunButton'
 
 const TestSuiteHeroSection = () => {
   return (
-    <Box sx={{ position: 'relative', width: '100%', height: '100%' }}>
+    <Paper sx={{ position: 'relative', width: '100%', height: '100%' }}>
       <Box
         sx={{
           width: '100%',
@@ -45,7 +44,7 @@ const TestSuiteHeroSection = () => {
 
         <RerunButton />
       </Box>
-    </Box>
+    </Paper>
   )
 }
 

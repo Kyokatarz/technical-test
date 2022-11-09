@@ -15,6 +15,10 @@ function App() {
           style={{
             minWidth: '100vw',
             minHeight: '100vh',
+            padding: '1rem',
+            backgroundColor: '#D3D3D3',
+            display: 'flex',
+            justifyContent: 'center',
           }}
         >
           <Dashboard />
