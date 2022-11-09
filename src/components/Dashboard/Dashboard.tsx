@@ -1,16 +1,20 @@
+import Button from '@mui/material/Button'
 import Grid from '@mui/material/Grid'
+import { useTheme } from '@mui/material/styles'
 import Box from '@mui/system/Box'
 import React from 'react'
 
 import data from '../../test.json'
+import ComponentScore from '../ComponentScore'
 import TestSuiteHeroImg from './assets/hero_image.jpg'
 
 const Dashboard = () => {
+  const theme = useTheme()
   const cpuUiValueScore = React.useMemo(
     () =>
       data.results[0].scores.componentScores.find(
         (score) => score.baseType === 'CPU_SCORE'
-      )?.uiValue,
+      )?.uiValue as string,
     []
   )
 
@@ -18,7 +22,7 @@ const Dashboard = () => {
     () =>
       data.results[0].scores.componentScores.find(
         (score) => score.baseType === 'GRAPHICS_SCORE'
-      )?.uiValue,
+      )?.uiValue as string,
     []
   )
 
@@ -27,21 +31,44 @@ const Dashboard = () => {
 
   return (
     <Grid container sx={{ height: '100%' }}>
-      <Grid item xs={4}>
-        <Box sx={{ width: '100%', height: '100%', border: 'green' }}>
-          TEST SCORE
+      <Grid
+        container
+        item
+        xs={3}
+        sx={{
+          width: '100%',
+          height: '100%',
+          border: 'green',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <Box>TEST SCORE</Box>
+        <Box sx={{ fontSize: '2rem' }}>
           {data.results[0].scores.overallScore.uiValue}
-          <Box>
-            <>
-              Cpu {cpuName} score: {cpuUiValueScore}
-            </>
-          </Box>
-          <Box>
-            <>
-              Gpu {gpuName} score: {gpuUiValueScore}
-            </>
-          </Box>
         </Box>
+
+        <Grid
+          item
+          container
+          xs={12}
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <ComponentScore name={cpuName} score={cpuUiValueScore} />
+          <ComponentScore name={gpuName} score={gpuUiValueScore} />
+        </Grid>
+
+        <Button variant="outlined" sx={{ marginTop: theme.spacing(2) }}>
+          {' '}
+          Compare results online{' '}
+        </Button>
       </Grid>
       <Grid item xs={8}>
         <Box
