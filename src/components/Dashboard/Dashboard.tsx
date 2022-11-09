@@ -8,15 +8,16 @@ import TestSuiteHeroSection from '../TestSuiteHeroSection'
 
 const Dashboard = () => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
+    <Grid
+      container
+      spacing={1}
+      direction="column"
+      sx={{
         width: '100%',
         height: '100%',
       }}
     >
-      <Grid container sx={{ height: '100%' }} spacing={1}>
+      <Grid container item xs={12} sx={{ height: '100%' }} spacing={1}>
         <Grid
           container
           item
@@ -40,7 +41,7 @@ const Dashboard = () => {
           <RecentResultsChart data={data} />
         </Grid>
       </Grid>
-    </div>
+    </Grid>
   )
 }
 
