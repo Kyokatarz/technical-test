@@ -6,7 +6,7 @@ import React from 'react'
 
 import data from '../../test.json'
 import ComponentScore from '../ComponentScore'
-import TestSuiteHeroImg from './assets/hero_image.jpg'
+import TestSuiteHeroSection from '../TestSuiteHeroSection'
 
 const Dashboard = () => {
   const theme = useTheme()
@@ -38,6 +38,7 @@ const Dashboard = () => {
         sx={{
           width: '100%',
           height: '100%',
+          minHeight: '450px',
           border: 'green',
           display: 'flex',
           flexDirection: 'column',
@@ -71,15 +72,7 @@ const Dashboard = () => {
         </Button>
       </Grid>
       <Grid item xs={8}>
-        <Box
-          sx={{
-            width: '100%',
-            height: '100%',
-            border: 'red',
-            backgroundImage: `url(${TestSuiteHeroImg})`,
-            backgroundSize: 'cover',
-          }}
-        ></Box>
+        <TestSuiteHeroSection />
       </Grid>
     </Grid>
   )
