@@ -8,11 +8,11 @@ type Props = {
 
 const ComponentScore = ({ name, score }: Props) => {
   return (
-    <Grid container item xs={10} direction={'row'}>
-      <Grid item xs={9}>
+    <Grid container item xs={10} lg={12} direction={'row'}>
+      <Grid item xs={10}>
         {name}
       </Grid>
-      <Grid item xs={3}>
+      <Grid item xs={2}>
         {score}
       </Grid>
     </Grid>

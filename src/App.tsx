@@ -14,7 +14,7 @@ function App() {
         <div
           className="App"
           style={{
-            minWidth: '100vw',
+            width: '100%',
             minHeight: '100vh',
             backgroundColor: '#D3D3D3',
             display: 'flex',

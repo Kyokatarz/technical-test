@@ -23,17 +23,17 @@ const CpuInfo = ({ data }: Props) => {
   return (
     <Paper sx={{ width: '100%', minHeight: 200, padding: '1rem' }}>
       <TileHeader text="CPU Info" />
-      <Grid container spacing={1}>
+      <Grid container spacing={2}>
         <Grid item xs={12} sx={{ marginBottom: theme.spacing(1) }}>
           <Typography>{cpuName}</Typography>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={12} lg={6}>
           <InfoBox title="Cores" value={cpuCores} />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={12} lg={6}>
           <InfoBox title="Threads" value={cpuThreads} />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={12} lg={6}>
           <InfoBox title="VR Ready" value={vrReady ? 'Yes' : 'No'} />
         </Grid>
       </Grid>

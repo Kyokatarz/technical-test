@@ -9,13 +9,18 @@ type Props = {
 
 const InfoBox = ({ title, value }: Props) => {
   return (
-    <Grid container>
-      <Grid item xs={3} sx={{ display: 'flex', alignItems: 'center' }}>
+    <Grid container spacing={1}>
+      <Grid item xs={12} md={3} sx={{ display: 'flex', alignItems: 'center' }}>
         <Typography sx={{ fontSize: '0.9rem', fontWeight: '500' }}>
           {title}
         </Typography>
       </Grid>
-      <Grid item xs={8} sx={{ backgroundColor: '#F1EFEC', padding: '0.25rem' }}>
+      <Grid
+        item
+        xs={12}
+        md={8}
+        sx={{ backgroundColor: '#F1EFEC', padding: '0.25rem' }}
+      >
         <Typography>{value}</Typography>
       </Grid>
     </Grid>

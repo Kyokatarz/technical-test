@@ -25,7 +25,9 @@ const Dashboard = () => {
         <Grid
           container
           item
-          xs={3}
+          xs={12}
+          md={5}
+          lg={3}
           sx={{
             width: '100%',
             height: '100%',
@@ -35,25 +37,25 @@ const Dashboard = () => {
           <TestScoreSection data={data} />
         </Grid>
 
-        <Grid item xs={9}>
+        <Grid item xs={12} md={7} lg={9}>
           <TestSuiteHeroSection />
         </Grid>
       </Grid>
 
       <Grid container item xs={12} spacing={1}>
-        <Grid item xs={4}>
+        <Grid item xs={12} md={4}>
           <RecentResultsChart data={data} />
         </Grid>
-        <Grid item xs={8}>
+        <Grid item xs={12} md={8}>
           <MonitorChart data={data} />
         </Grid>
       </Grid>
 
       <Grid container item xs={12} spacing={1}>
-        <Grid item xs={6}>
+        <Grid item xs={12} md={6}>
           <CpuInfo data={data} />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={12} md={6}>
           <GpuInfo data={data} />
         </Grid>
       </Grid>

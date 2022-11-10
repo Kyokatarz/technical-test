@@ -6,7 +6,14 @@ import RerunButton from './components/RerunButton'
 
 const TestSuiteHeroSection = () => {
   return (
-    <Paper sx={{ position: 'relative', width: '100%', height: '100%' }}>
+    <Paper
+      sx={{
+        position: 'relative',
+        width: '100%',
+        height: '100%',
+        minHeight: 300,
+      }}
+    >
       <Box
         sx={{
           width: '100%',

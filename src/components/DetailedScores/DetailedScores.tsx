@@ -33,16 +33,16 @@ const DetailedScores = ({ data }: Props) => {
   return (
     <Paper sx={{ padding: '1rem' }}>
       <TileHeader text="Detailed score" />
-      <Grid container spacing={1}>
+      <Grid container spacing={2}>
         {graphicsSubScores?.map((subScore, index) => (
-          <Grid item xs={6} key={index}>
+          <Grid item xs={12} lg={6} key={index}>
             <InfoBox
               title={`Graphics Test ${index + 1}`}
               value={subScore.uiValue + ' FPS'}
             />
           </Grid>
         ))}
-        <Grid item xs={6}>
+        <Grid item xs={12} lg={6}>
           <InfoBox
             title="Average simulation time per frame"
             value={`${simulateTimePerFrame} ${simulateTimePerFrameUnit}`}

@@ -44,6 +44,7 @@ const TestScoreSection = ({ data }: Props) => {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
+        padding: '1rem',
       }}
     >
       <Box>TEST SCORE</Box>

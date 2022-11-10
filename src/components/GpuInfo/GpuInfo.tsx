@@ -23,16 +23,18 @@ const GpuInfo = ({ data }: Props) => {
   const vramUiValue = `${vram}MB ${vramType}`
 
   return (
-    <Paper sx={{ width: '100%', minHeight: 200, padding: '1rem' }}>
+    <Paper
+      sx={{ width: '100%', minHeight: 200, padding: '1rem', height: '100%' }}
+    >
       <TileHeader text="GPU Info" />
       <Grid container spacing={1}>
         <Grid item xs={12} sx={{ marginBottom: theme.spacing(1) }}>
           <Typography>{gpuName}</Typography>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={12} lg={6}>
           <InfoBox title="Avg. Clock Speed" value={AvgClockSpeed} />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={12} lg={6}>
           <InfoBox title="VRAM" value={vramUiValue} />
         </Grid>
       </Grid>
