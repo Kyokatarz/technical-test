@@ -1,10 +1,10 @@
 import Grid from '@mui/material/Grid'
 import Paper from '@mui/material/Paper'
-import Typography from '@mui/material/Typography'
 import React from 'react'
 
 import DataTypes from '../../types/data'
 import InfoBox from '../InfoBox'
+import TileHeader from '../TileHeader'
 
 type Props = {
   data: DataTypes
@@ -32,7 +32,7 @@ const DetailedScores = ({ data }: Props) => {
 
   return (
     <Paper sx={{ padding: '1rem' }}>
-      <Typography> Detailed scores </Typography>
+      <TileHeader text="Detailed score" />
       <Grid container spacing={1}>
         {graphicsSubScores?.map((subScore, index) => (
           <Grid item xs={6} key={index}>

@@ -5,6 +5,7 @@ import React from 'react'
 
 import DataTypes from '../../types/data'
 import InfoBox from '../InfoBox'
+import TileHeader from '../TileHeader'
 
 type Props = {
   data: DataTypes
@@ -18,7 +19,7 @@ const CpuInfo = ({ data }: Props) => {
 
   return (
     <Paper sx={{ width: '100%', minHeight: 200, padding: '1rem' }}>
-      <Typography>CPU</Typography>
+      <TileHeader text="CPU Info" />
       <Grid container spacing={1}>
         <Grid item xs={12}>
           <Typography>{cpuName}</Typography>

@@ -1,6 +1,4 @@
 import Paper from '@mui/material/Paper'
-import Typography from '@mui/material/Typography'
-import { useTheme } from '@mui/material/styles'
 import {
   CategoryScale,
   Chart as ChartJS,
@@ -14,6 +12,7 @@ import {
 import { Line } from 'react-chartjs-2'
 
 import DataTypes from '../../types/data'
+import TileHeader from '../TileHeader'
 
 type Props = {
   data: DataTypes
@@ -30,8 +29,6 @@ ChartJS.register(
 )
 
 const RecentResultsChart = ({ data }: Props) => {
-  const theme = useTheme()
-
   const options = {
     maintainAspectRatio: false,
     responsive: true,
@@ -71,9 +68,7 @@ const RecentResultsChart = ({ data }: Props) => {
         flexDirection: 'column',
       }}
     >
-      <Typography sx={{ fontSize: '1.25rem', marginBottom: theme.spacing(1) }}>
-        Monitoring
-      </Typography>
+      <TileHeader text="Monitoring" />
       <div style={{ maxHeight: 400, height: '90%' }}>
         <Line options={options} data={chartData} width="100%" height="100%" />
       </div>
