@@ -3,6 +3,7 @@ import React from 'react'
 
 import data from '../../test.json'
 import CpuInfo from '../CpuInfo'
+import DetailedScores from '../DetailedScores'
 import GpuInfo from '../GpuInfo'
 import MonitorChart from '../MonitorChart'
 import RecentResultsChart from '../RecentResultsChart'
@@ -57,7 +58,9 @@ const Dashboard = () => {
         </Grid>
       </Grid>
 
-      <Grid item xs={12}></Grid>
+      <Grid item xs={12}>
+        <DetailedScores data={data} />
+      </Grid>
     </Grid>
   )
 }
