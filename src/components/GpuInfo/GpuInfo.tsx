@@ -1,6 +1,7 @@
 import Grid from '@mui/material/Grid'
 import Paper from '@mui/material/Paper'
 import Typography from '@mui/material/Typography'
+import { useTheme } from '@mui/material/styles'
 import React from 'react'
 
 import DataTypes from '../../types/data'
@@ -12,6 +13,8 @@ type Props = {
 }
 
 const GpuInfo = ({ data }: Props) => {
+  const theme = useTheme()
+
   const gpuName = data.systemInfo.gpu[0].name
   const AvgClockSpeed = data.systemInfo.gpu[0].clockSpeed.gpu.averageMhz
   const vram = data.systemInfo.gpu[0].memory.memoryAmountMb
@@ -23,7 +26,7 @@ const GpuInfo = ({ data }: Props) => {
     <Paper sx={{ width: '100%', minHeight: 200, padding: '1rem' }}>
       <TileHeader text="GPU Info" />
       <Grid container spacing={1}>
-        <Grid item xs={12}>
+        <Grid item xs={12} sx={{ marginBottom: theme.spacing(1) }}>
           <Typography>{gpuName}</Typography>
         </Grid>
         <Grid item xs={6}>
