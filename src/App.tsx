@@ -1,11 +1,12 @@
 import { ThemeProvider } from '@mui/material'
 import CssBaseline from '@mui/material/CssBaseline'
+import { useTheme } from '@mui/material/styles'
 import React from 'react'
 
 import Dashboard from './components/Dashboard'
-import theme from './theme/theme'
 
 function App() {
+  const theme = useTheme()
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -15,13 +16,22 @@ function App() {
           style={{
             minWidth: '100vw',
             minHeight: '100vh',
-            padding: '1rem',
             backgroundColor: '#D3D3D3',
             display: 'flex',
-            justifyContent: 'center',
+            alignItems: 'center',
+            flexDirection: 'column',
           }}
         >
-          <Dashboard />
+          <div
+            style={{
+              maxWidth: theme.breakpoints.values.xl,
+              width: '100%',
+              padding: '1rem',
+              justifyContent: 'center',
+            }}
+          >
+            <Dashboard />
+          </div>
         </div>
       </ThemeProvider>
     </>

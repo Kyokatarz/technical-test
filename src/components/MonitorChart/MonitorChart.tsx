@@ -65,15 +65,14 @@ const RecentResultsChart = ({ data }: Props) => {
   return (
     <Paper
       sx={{
-        maxHeight: '400px',
-        height: '100%',
+        height: '400px',
         padding: '1rem',
         display: 'flex',
         flexDirection: 'column',
       }}
     >
       <Typography sx={{ fontSize: '1.25rem', marginBottom: theme.spacing(1) }}>
-        Recent scores
+        Monitoring
       </Typography>
       <div style={{ maxHeight: 400, height: '90%' }}>
         <Line options={options} data={chartData} width="100%" height="100%" />
