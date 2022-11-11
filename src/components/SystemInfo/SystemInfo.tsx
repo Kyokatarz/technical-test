@@ -1,5 +1,7 @@
 import Grid from '@mui/material/Grid'
 import Paper from '@mui/material/Paper'
+import Typography from '@mui/material/Typography'
+import { useTheme } from '@mui/material/styles'
 import React from 'react'
 
 import DataTypes from '../../types/data'
@@ -13,7 +15,7 @@ type Props = {
 
 const SystemInfo = ({ data }: Props) => {
   const displayInfo = getDisplayInfo(data)
-
+  const theme = useTheme()
   return (
     <Paper
       sx={{
@@ -26,24 +28,23 @@ const SystemInfo = ({ data }: Props) => {
       <TileHeader text="System Info" />
 
       <Grid container spacing={2}>
-        {/* <Typography>CPU</Typography> */}
-        <Grid item container xs={12} lg={4}>
-          {displayInfo.cpu.map((info) => (
-            <InfoBox title={info.title} value={info.value} key={info.title} />
-          ))}
-        </Grid>
-        {/* <Typography>GPU</Typography> */}
-        <Grid item container xs={12} lg={4}>
-          {displayInfo.gpu.map((info) => (
-            <InfoBox title={info.title} value={info.value} key={info.title} />
-          ))}
-        </Grid>
-        {/* <Typography>Motherboard</Typography> */}
-        <Grid item container xs={12} lg={4}>
-          {displayInfo.motherboard.map((info) => (
-            <InfoBox title={info.title} value={info.value} key={info.title} />
-          ))}
-        </Grid>
+        {displayInfo.map((section) => (
+          <Grid
+            item
+            xs={12}
+            md={6}
+            lg={4}
+            key={section.sectionName}
+            sx={{ marginBottom: theme.spacing(1) }}
+          >
+            <Typography variant="h6" sx={{ marginBottom: '1rem' }}>
+              {section.sectionName}
+            </Typography>
+            {section.data.map((info) => (
+              <InfoBox key={info.title} title={info.title} value={info.value} />
+            ))}
+          </Grid>
+        ))}
       </Grid>
     </Paper>
   )

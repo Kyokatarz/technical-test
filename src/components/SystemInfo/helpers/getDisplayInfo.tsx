@@ -74,7 +74,7 @@ function getMotherboardInfoToDisplay(data: DataTypes) {
     },
     {
       title: 'Bridge Chip',
-      value: `${motherboardInfo.northBridgeModel} (${motherboardInfo.northBridgeModel}) / ${motherboardInfo.southBridgeVendor} (${motherboardInfo.southBridgeModel})`,
+      value: `${motherboardInfo.northBridgeVendor} (${motherboardInfo.northBridgeModel}) / ${motherboardInfo.southBridgeVendor} (${motherboardInfo.southBridgeModel})`,
     },
     {
       title: 'Memory',
@@ -84,9 +84,9 @@ function getMotherboardInfoToDisplay(data: DataTypes) {
 }
 
 export default function getDisplayInfo(data: DataTypes) {
-  return {
-    cpu: getCpuInfoToDisplay(data),
-    gpu: getGpuInfoToDisplay(data),
-    motherboard: getMotherboardInfoToDisplay(data),
-  }
+  return [
+    { sectionName: 'CPU', data: getCpuInfoToDisplay(data) },
+    { sectionName: 'GPU', data: getGpuInfoToDisplay(data) },
+    { sectionName: 'Motherboard', data: getMotherboardInfoToDisplay(data) },
+  ]
 }

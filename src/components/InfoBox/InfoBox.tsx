@@ -11,15 +11,17 @@ type Props = {
 const InfoBox = ({ title, value }: Props) => {
   const theme = useTheme()
   return (
-    <Grid
-      container
-      item
-      xs={12}
-      spacing={1}
-      sx={{ margin: `${theme.spacing(0.25)} 0` }}
-    >
-      <Grid item xs={12} md={3} sx={{ display: 'flex', alignItems: 'center' }}>
-        <Typography sx={{ fontSize: '0.9rem', fontWeight: '500' }}>
+    <Grid container item xs={12} sx={{ margin: `${theme.spacing(1)} 0` }}>
+      <Grid
+        item
+        xs={12}
+        md={3}
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+        }}
+      >
+        <Typography sx={{ fontSize: '0.9rem', fontWeight: '500', padding: 0 }}>
           {title}
         </Typography>
       </Grid>
