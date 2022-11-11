@@ -33,7 +33,7 @@ const DetailedScores = ({ data }: Props) => {
   return (
     <Paper sx={{ padding: '1rem' }}>
       <TileHeader text="Detailed score" />
-      <Grid container spacing={2}>
+      <Grid container>
         {graphicsSubScores?.map((subScore, index) => (
           <Grid item xs={12} lg={6} key={index}>
             <InfoBox

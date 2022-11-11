@@ -2,11 +2,10 @@ import Grid from '@mui/material/Grid'
 import React from 'react'
 
 import data from '../../test.json'
-import CpuInfo from '../CpuInfo'
 import DetailedScores from '../DetailedScores'
-import GpuInfo from '../GpuInfo'
 import MonitorChart from '../MonitorChart'
 import RecentResultsChart from '../RecentResultsChart'
+import SystemInfo from '../SystemInfo'
 import TestScoreSection from '../TestScoreSection'
 import TestSuiteHeroSection from '../TestSuiteHeroSection'
 
@@ -51,13 +50,8 @@ const Dashboard = () => {
         </Grid>
       </Grid>
 
-      <Grid container item xs={12} spacing={1}>
-        <Grid item xs={12} md={6}>
-          <CpuInfo data={data} />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <GpuInfo data={data} />
-        </Grid>
+      <Grid container item xs={12}>
+        <SystemInfo data={data} />
       </Grid>
 
       <Grid item xs={12}>
