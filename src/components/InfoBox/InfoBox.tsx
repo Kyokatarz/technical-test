@@ -21,17 +21,21 @@ const InfoBox = ({ title, value }: Props) => {
           alignItems: 'center',
         }}
       >
-        <Typography sx={{ fontSize: '0.9rem', fontWeight: '500', padding: 0 }}>
-          {title}
-        </Typography>
+        <Typography sx={{ fontWeight: '500', padding: 0 }}>{title}</Typography>
       </Grid>
       <Grid
         item
         xs={12}
         md={8}
-        sx={{ backgroundColor: '#F1EFEC', padding: '0.25rem' }}
+        sx={{
+          backgroundColor: '#F1EFEC',
+          padding: '0.25rem',
+          paddingLeft: '0.5rem',
+        }}
       >
-        <Typography>{value}</Typography>
+        <Typography sx={{ color: '#3e3e3e', fontSize: '0.9rem' }}>
+          {value}
+        </Typography>
       </Grid>
     </Grid>
   )
