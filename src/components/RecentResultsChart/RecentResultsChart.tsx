@@ -11,6 +11,7 @@ import {
 } from 'chart.js'
 import { Line } from 'react-chartjs-2'
 
+import getRecentScores from '../../helpers/getRecentScores'
 import DataTypes from '../../types/data'
 import TileHeader from '../TileHeader'
 
@@ -29,6 +30,14 @@ ChartJS.register(
 )
 
 const RecentResultsChart = ({ data }: Props) => {
+  const resultScore = data.results[0].scores.overallScore.score
+  const resultsCount = 5
+  const recentScores = getRecentScores(resultScore, resultsCount)
+
+  const avgScore =
+    recentScores.map((score) => score.score).reduce((a, b) => a + b, 0) /
+    recentScores.length
+
   const options = {
     maintainAspectRatio: false,
     responsive: true,
@@ -39,22 +48,23 @@ const RecentResultsChart = ({ data }: Props) => {
     },
   }
 
-  const labels = ['1', '2', '3', '4', '5']
-
+  const labels = recentScores.map((score) =>
+    score.date.toLocaleDateString('en-GB')
+  )
   const chartData = {
     labels,
     datasets: [
       {
         label: 'Score',
-        data: [10, 20, 30, 40, 50, 60, 70],
+        data: recentScores.map((score) => score.score),
         borderColor: 'rgb(255, 99, 132)',
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        backgroundColor: 'rgba(255, 99, 132)',
       },
       {
         label: 'Average',
-        data: [20, 20, 20, 20, 20],
+        data: recentScores.map(() => avgScore),
         borderColor: 'rgb(53, 162, 235)',
-        backgroundColor: 'rgba(53, 162, 235, 0.5)',
+        backgroundColor: 'rgba(53, 162, 235)',
       },
     ],
   }

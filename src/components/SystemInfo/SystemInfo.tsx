@@ -29,7 +29,7 @@ const SystemInfo = ({ data }: Props) => {
 
       <Grid container spacing={2}>
         {displayInfo.map((section) => (
-          <SystemInfoSection section={section} />
+          <SystemInfoSection section={section} key={section.sectionName} />
         ))}
       </Grid>
     </Paper>
