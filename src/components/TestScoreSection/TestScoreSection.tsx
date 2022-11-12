@@ -6,10 +6,30 @@ import Box from '@mui/system/Box'
 import React from 'react'
 
 import DataTypes from '../../types/data'
+import SxTheme from '../../types/theme'
 import ComponentScore from './components/ComponentScore'
 
 type Props = {
   data: DataTypes
+}
+
+const styles: SxTheme = {
+  paper: {
+    width: '100%',
+    height: '100%',
+    minHeight: '450px',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: '1rem',
+  },
+  componentScoreWrapper: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 }
 
 const TestScoreSection = ({ data }: Props) => {
@@ -34,35 +54,13 @@ const TestScoreSection = ({ data }: Props) => {
   const gpuName = data.systemInfo.gpu[0].name
 
   return (
-    <Paper
-      sx={{
-        width: '100%',
-        height: '100%',
-        minHeight: '450px',
-        border: 'green',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: '1rem',
-      }}
-    >
+    <Paper sx={styles.paper}>
       <Box>TEST SCORE</Box>
       <Box sx={{ fontSize: '2rem' }}>
         {data.results[0].scores.overallScore.uiValue}
       </Box>
 
-      <Grid
-        item
-        container
-        xs={12}
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
+      <Grid item container xs={12} sx={styles.componentScoreWrapper}>
         <ComponentScore name={cpuName} score={cpuUiValueScore} />
         <ComponentScore name={gpuName} score={gpuUiValueScore} />
       </Grid>
