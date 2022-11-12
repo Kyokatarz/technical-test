@@ -1,7 +1,7 @@
+import { Divider } from '@mui/material'
 import Grid from '@mui/material/Grid'
 import Paper from '@mui/material/Paper'
 import Typography from '@mui/material/Typography'
-import { useTheme } from '@mui/material/styles'
 import React from 'react'
 
 import DataTypes from '../../types/data'
@@ -15,7 +15,6 @@ type Props = {
 
 const SystemInfo = ({ data }: Props) => {
   const displayInfo = getDisplayInfo(data)
-  const theme = useTheme()
   return (
     <Paper
       sx={{
@@ -35,11 +34,12 @@ const SystemInfo = ({ data }: Props) => {
             md={6}
             lg={4}
             key={section.sectionName}
-            sx={{ marginBottom: theme.spacing(1) }}
+            sx={{
+              marginBottom: (theme) => theme.spacing(1),
+            }}
           >
-            <Typography variant="h6" sx={{ marginBottom: '1rem' }}>
-              {section.sectionName}
-            </Typography>
+            <Typography variant="h6">{section.sectionName}</Typography>
+            <Divider sx={{ margin: (theme) => `${theme.spacing(1)} 0` }} />
             {section.data.map((info) => (
               <InfoBox key={info.title} title={info.title} value={info.value} />
             ))}
