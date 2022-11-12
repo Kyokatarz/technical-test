@@ -2,6 +2,7 @@ import { Box, ThemeProvider } from '@mui/material'
 import CssBaseline from '@mui/material/CssBaseline'
 
 import Dashboard from './components/Dashboard'
+import theme from './theme/theme'
 import SxTheme from './types/theme'
 
 const styles: SxTheme = {
