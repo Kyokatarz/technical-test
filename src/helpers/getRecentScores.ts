@@ -1,14 +1,13 @@
 import getRandomDate from './getRandomDate'
+import getRandomWithDelta from './getRandomWithDelta'
 
 export default function getRecentScores(score: number, length: number) {
   const delta = 150
-  const minScore = score - delta
-  const maxScore = score + delta
 
   const scores = []
 
   for (let i = 0; i < length - 1; i++) {
-    const randomPoint = Math.random() * (maxScore - minScore) + minScore
+    const randomPoint = getRandomWithDelta(score, delta)
     const randomDate = getRandomDate(new Date(2022, 0, 1), new Date())
     scores.push({
       date: randomDate,

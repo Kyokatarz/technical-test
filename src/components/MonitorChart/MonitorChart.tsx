@@ -11,6 +11,8 @@ import {
 } from 'chart.js'
 import { Line } from 'react-chartjs-2'
 
+import formatTime from '../../helpers//formatTime'
+import getRandomMonitoringData from '../../helpers/getRandomMonitoringData'
 import DataTypes from '../../types/data'
 import TileHeader from '../TileHeader'
 
@@ -28,7 +30,13 @@ ChartJS.register(
   Legend
 )
 
-const RecentResultsChart = ({ data }: Props) => {
+const MonitorChart = ({ data }: Props) => {
+  const overDuration = 60 * 5 // 5 minutes
+  const monitoringData = getRandomMonitoringData(data, overDuration)
+  const gpuDataset = monitoringData.map((data) => data.gpu)
+  const cpuDataset = monitoringData.map((data) => data.cpu)
+  const timeDataset = monitoringData.map((data) => data.time)
+
   const options = {
     maintainAspectRatio: false,
     responsive: true,
@@ -37,24 +45,35 @@ const RecentResultsChart = ({ data }: Props) => {
         position: 'bottom' as const,
       },
     },
+    elements: {
+      point: {
+        radius: 0,
+      },
+    },
+    scale: {
+      ticks: {
+        maxTicksLimit: 10,
+      },
+    },
   }
 
-  const labels = ['1', '2', '3', '4', '5']
-
+  const labels = timeDataset.map((time) => formatTime(time))
   const chartData = {
     labels,
     datasets: [
       {
-        label: 'Score',
-        data: [10, 20, 30, 40, 50, 60, 70],
+        label: 'GPU Frequency',
+        data: gpuDataset,
         borderColor: 'rgb(255, 99, 132)',
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        backgroundColor: 'rgba(255, 99, 132)',
+        borderWidth: 1.5,
       },
       {
-        label: 'Average',
-        data: [20, 20, 20, 20, 20],
+        label: 'CPU Frequency',
+        data: cpuDataset,
         borderColor: 'rgb(53, 162, 235)',
-        backgroundColor: 'rgba(53, 162, 235, 0.5)',
+        backgroundColor: 'rgba(53, 162, 235)',
+        borderWidth: 1.5,
       },
     ],
   }
@@ -76,4 +95,4 @@ const RecentResultsChart = ({ data }: Props) => {
   )
 }
 
-export default RecentResultsChart
+export default MonitorChart
