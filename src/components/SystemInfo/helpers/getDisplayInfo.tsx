@@ -40,11 +40,11 @@ function getGpuInfoToDisplay(data: DataTypes) {
     },
     {
       title: 'Memory',
-      value: `${gpuInfo.memory.availableVram} MB (${gpuInfo.memory.memoryType})`,
+      value: `${gpuInfo.memory.memoryAmountMb} MB (${gpuInfo.memory.memoryType})`,
     },
     {
       title: 'Manufacturer',
-      value: `${gpuInfo.pciDeviceId.vendorName} / ${gpuInfo.pciDeviceId.subDeviceId}`,
+      value: `${gpuInfo.pciDeviceId.vendorName} / ${gpuInfo.pciDeviceId.subvendorName}`,
     },
     {
       title: 'Clock Speed',
