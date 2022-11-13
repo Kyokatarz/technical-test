@@ -55,6 +55,12 @@ const BenchmarkOverlay = () => {
   const timeElasped = dataSet[dataSet.length - 1]?.time || 0
   const formattedTimeElapsed = formatTime(timeElasped)
 
+  React.useEffect(() => {
+    if (!benchmarking) return
+    if (benchmarking) document.title = 'Benchmarking...'
+    if (benchmarking && done) document.title = 'Benchmark done'
+  }, [benchmarking, done])
+
   if (!benchmarking) return null
 
   const handleDone = () => {

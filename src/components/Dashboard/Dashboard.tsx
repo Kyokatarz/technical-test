@@ -25,6 +25,10 @@ const styles: SxTheme = {
 const Dashboard = () => {
   const { dataToDisplay } = useAppContext()
 
+  React.useEffect(() => {
+    document.title = 'Results ・ UL Benchmarks'
+  })
+
   if (!dataToDisplay) return null
 
   return (
