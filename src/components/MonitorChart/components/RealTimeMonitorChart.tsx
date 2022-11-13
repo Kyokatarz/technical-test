@@ -99,16 +99,16 @@ const RealTimeMonitorChart = ({ dataSet, setDataSet, setDone }: Props) => {
       {
         label: 'GPU Frequency',
         data: gpuDataset,
-        borderColor: 'rgb(255, 99, 132)',
-        backgroundColor: 'rgba(255, 99, 132)',
-        borderWidth: 1.5,
+        borderColor: 'rgb(53, 162, 235)',
+        backgroundColor: 'rgb(53, 162, 235)',
+        borderWidth: 2,
       },
       {
         label: 'CPU Frequency',
         data: cpuDataset,
-        borderColor: 'rgb(53, 162, 235)',
-        backgroundColor: 'rgba(53, 162, 235)',
-        borderWidth: 1.5,
+        borderColor: '#fb8b24',
+        backgroundColor: '#fb8b24',
+        borderWidth: 2,
       },
     ],
   }

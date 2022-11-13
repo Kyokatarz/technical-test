@@ -58,14 +58,14 @@ const RecentResultsChart = ({ data }: Props) => {
       {
         label: 'Score',
         data: recentScores.map((score) => score.score),
-        borderColor: 'rgb(255, 99, 132)',
-        backgroundColor: 'rgba(255, 99, 132)',
+        borderColor: '#6f2dbd',
+        backgroundColor: '#6f2dbd',
       },
       {
         label: 'Average',
         data: recentScores.map(() => avgScore),
-        borderColor: 'rgb(53, 162, 235)',
-        backgroundColor: 'rgba(53, 162, 235)',
+        borderColor: '#D1D6DC',
+        backgroundColor: '#D1D6DC',
       },
     ],
   }

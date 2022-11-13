@@ -55,6 +55,11 @@ const BenchmarkOverlay = () => {
 
   if (!benchmarking) return null
 
+  const handleDone = () => {
+    setDone(false)
+    setBenchmarking(false)
+  }
+
   return (
     <Paper sx={styles.outerWrapper}>
       <TileHeader text={tileHeader} />
@@ -67,7 +72,7 @@ const BenchmarkOverlay = () => {
         />
       </Box>
       {done && (
-        <Button variant="contained" onClick={() => setBenchmarking(false)}>
+        <Button variant="outlined" onClick={handleDone}>
           See results
         </Button>
       )}

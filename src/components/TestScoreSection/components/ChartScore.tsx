@@ -36,7 +36,7 @@ const ChartScore = ({ testScoreInNumber, testScoreUiValue }: Props) => {
     datasets: [
       {
         data: [testScoreInNumber, maxScore - testScoreInNumber],
-        backgroundColor: ['#336699', '#666666'],
+        backgroundColor: ['#15B715', '#D1D6DC'],
         display: true,
         borderColor: '#D1D6DC',
         cutout: '80%',
