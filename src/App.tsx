@@ -2,6 +2,7 @@ import { Box, ThemeProvider } from '@mui/material'
 import CssBaseline from '@mui/material/CssBaseline'
 import React from 'react'
 
+import BenchMarkOverlay from './components/BenchmarkOverlay'
 import Dashboard from './components/Dashboard'
 import AppContextProvider from './contexts/AppContextProvider'
 import theme from './theme/theme'
@@ -33,6 +34,7 @@ function App() {
           <Box className="App" sx={styles.appOuterWrapper}>
             <Box sx={styles.appInnerWrapper}>
               <Dashboard />
+              <BenchMarkOverlay />
             </Box>
           </Box>
         </ThemeProvider>

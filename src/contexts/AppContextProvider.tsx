@@ -11,17 +11,22 @@ type AppContextType = {
   recentResults: DataTypes[]
   setDataToDisplay: (data: DataTypes) => void
   reRunTest: () => void
+  benchmarking: boolean
+  setBenchmarking: (value: boolean) => void
 }
 
 export const AppContext = React.createContext<AppContextType>({
   setDataToDisplay: () => {},
   reRunTest: () => {},
   recentResults: [],
+  benchmarking: false,
+  setBenchmarking: () => {},
 })
 
 const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [dataToDisplay, setDataToDisplay] = React.useState<DataTypes>()
   const [recentResults, setRecentResults] = React.useState<DataTypes[]>([])
+  const [benchmarking, setBenchmarking] = React.useState(false)
 
   const memorizedDataInLocalStorage = React.useCallback(
     (newData: DataTypes) => {
@@ -33,14 +38,23 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
 
   const reRunTest = React.useCallback(() => {
     const newData = weaveNewData()
+
+    setBenchmarking(true)
     setDataToDisplay(newData)
     setRecentResults((prev) => [...prev, newData])
     memorizedDataInLocalStorage(newData)
   }, [memorizedDataInLocalStorage])
 
   const value = React.useMemo(
-    () => ({ dataToDisplay, setDataToDisplay, reRunTest, recentResults }),
-    [dataToDisplay, setDataToDisplay, reRunTest, recentResults]
+    () => ({
+      dataToDisplay,
+      setDataToDisplay,
+      reRunTest,
+      recentResults,
+      benchmarking,
+      setBenchmarking,
+    }),
+    [dataToDisplay, setDataToDisplay, reRunTest, recentResults, benchmarking]
   )
 
   React.useEffect(() => {

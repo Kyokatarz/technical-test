@@ -6,6 +6,8 @@ type frequencyDataType = {
   avgGpuClockFrequency: number
 }
 
+let dataDippedLastTime = false
+
 const rollDice = (faces: number) => {
   return Math.random() <= 1 / faces
 }
@@ -59,24 +61,31 @@ const determineDataDip = (isDippedLastTime: boolean) => {
   }
 }
 
+export const getSingleDataPoint = (frequencyData: frequencyDataType) => {
+  let singlePointData
+
+  const isDataDipped = determineDataDip(dataDippedLastTime)
+  dataDippedLastTime = isDataDipped
+
+  if (isDataDipped) {
+    singlePointData = getDippedData(frequencyData)
+  } else {
+    singlePointData = getNormalData(frequencyData)
+  }
+
+  return singlePointData
+}
+
 const loopThroughTimeAndGetData = (
   frequencyData: frequencyDataType,
   durationInSeconds: number
 ) => {
   const dataSet = []
 
-  let dataDippedLastTime = false
   for (let i = 0; i < durationInSeconds; i += 1) {
     let dataInThisSec
 
-    const isDataDipped = determineDataDip(dataDippedLastTime)
-    dataDippedLastTime = isDataDipped
-
-    if (isDataDipped) {
-      dataInThisSec = getDippedData(frequencyData)
-    } else {
-      dataInThisSec = getNormalData(frequencyData)
-    }
+    dataInThisSec = getSingleDataPoint(frequencyData)
 
     dataInThisSec = {
       ...dataInThisSec,
