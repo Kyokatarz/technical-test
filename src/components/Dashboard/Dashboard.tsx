@@ -1,7 +1,7 @@
 import Grid from '@mui/material/Grid'
 import React from 'react'
 
-import data from '../../test.json'
+import useAppContext from '../../hooks/useAppContext'
 import SxTheme from '../../types/theme'
 import DetailedScores from '../DetailedScores'
 import MonitorChart from '../MonitorChart'
@@ -23,6 +23,10 @@ const styles: SxTheme = {
 }
 
 const Dashboard = () => {
+  const { dataToDisplay } = useAppContext()
+
+  if (!dataToDisplay) return null
+
   return (
     <Grid container spacing={1} direction="column" sx={styles.contentWrapper}>
       <Grid container item xs={12} sx={{ height: '100%' }} spacing={1}>
@@ -34,7 +38,7 @@ const Dashboard = () => {
           lg={3}
           sx={styles.overallScoreWrapper}
         >
-          <TestScoreSection data={data} />
+          <TestScoreSection data={dataToDisplay} />
         </Grid>
 
         <Grid item xs={12} md={7} lg={9}>
@@ -44,19 +48,19 @@ const Dashboard = () => {
 
       <Grid container item xs={12} spacing={1}>
         <Grid item xs={12} md={4}>
-          <RecentResultsChart data={data} />
+          <RecentResultsChart data={dataToDisplay} />
         </Grid>
         <Grid item xs={12} md={8}>
-          <MonitorChart data={data} />
+          <MonitorChart data={dataToDisplay} />
         </Grid>
       </Grid>
 
       <Grid container item xs={12}>
-        <SystemInfo data={data} />
+        <SystemInfo data={dataToDisplay} />
       </Grid>
 
       <Grid item xs={12}>
-        <DetailedScores data={data} />
+        <DetailedScores data={dataToDisplay} />
       </Grid>
     </Grid>
   )

@@ -1,10 +1,20 @@
 import Box from '@mui/material/Box'
 import Paper from '@mui/material/Paper'
 
+import useAppContext from '../../hooks/useAppContext'
 import TestSuiteHeroImg from './assets/hero_image.jpg'
 import RerunButton from './components/RerunButton'
+import weaveNewData from './helpers/weaveNewData'
 
 const TestSuiteHeroSection = () => {
+  const { setDataToDisplay } = useAppContext()
+
+  const handleRerun = () => {
+    const newData = weaveNewData()
+    console.log({ newData })
+    setDataToDisplay(newData)
+  }
+
   return (
     <Paper
       sx={{
@@ -49,7 +59,7 @@ const TestSuiteHeroSection = () => {
           Time Spy Extreme Suite
         </Box>
 
-        <RerunButton />
+        <RerunButton onClick={handleRerun} />
       </Box>
     </Paper>
   )

@@ -2,6 +2,7 @@ import { Box, ThemeProvider } from '@mui/material'
 import CssBaseline from '@mui/material/CssBaseline'
 
 import Dashboard from './components/Dashboard'
+import AppContextProvider from './contexts/AppContextProvider'
 import theme from './theme/theme'
 import SxTheme from './types/theme'
 
@@ -25,14 +26,16 @@ const styles: SxTheme = {
 function App() {
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Box className="App" sx={styles.appOuterWrapper}>
-          <Box sx={styles.appInnerWrapper}>
-            <Dashboard />
+      <AppContextProvider>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Box className="App" sx={styles.appOuterWrapper}>
+            <Box sx={styles.appInnerWrapper}>
+              <Dashboard />
+            </Box>
           </Box>
-        </Box>
-      </ThemeProvider>
+        </ThemeProvider>
+      </AppContextProvider>
     </>
   )
 }

@@ -2,12 +2,16 @@ import { Box, Button } from '@mui/material'
 import { styled } from '@mui/system'
 import React from 'react'
 
+type Props = {
+  onClick: () => void
+}
+
 const StyledRerunButton = styled(Button)({
   color: 'white',
   padding: '0.5rem 2rem',
 })
 
-const RerunButton = () => {
+const RerunButton = ({ onClick }: Props) => {
   return (
     <Box
       sx={{
@@ -18,7 +22,9 @@ const RerunButton = () => {
         padding: '1rem',
       }}
     >
-      <StyledRerunButton variant="contained">Rerun</StyledRerunButton>
+      <StyledRerunButton variant="contained" onClick={onClick}>
+        Rerun
+      </StyledRerunButton>
     </Box>
   )
 }
