@@ -31,8 +31,6 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
     []
   )
 
-  console.log(recentResults.length)
-
   const reRunTest = React.useCallback(() => {
     const newData = weaveNewData()
     setDataToDisplay(newData)
@@ -52,13 +50,16 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
   }, [])
 
   React.useEffect(() => {
-    setDataToDisplay(defaultData)
     const recentResultsInLocalStorage = getFromLocalStorage('recentResults')
     if (!recentResultsInLocalStorage) {
       addToLocalStorage('recentResults', [defaultData])
       setRecentResults([defaultData])
+      setDataToDisplay(defaultData)
     } else {
       setRecentResults(recentResultsInLocalStorage)
+      setDataToDisplay(
+        recentResultsInLocalStorage[recentResultsInLocalStorage.length - 1]
+      )
     }
   }, [])
 
