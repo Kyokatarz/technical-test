@@ -75,7 +75,7 @@ const BenchmarkOverlay = () => {
       </Box>
       {done && (
         <Button variant="outlined" onClick={handleDone}>
-          See results
+          View results
         </Button>
       )}
     </Paper>
