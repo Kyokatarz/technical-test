@@ -1,3 +1,4 @@
+import PlayArrowIcon from '@mui/icons-material/PlayArrow'
 import { Box, Button } from '@mui/material'
 import { styled } from '@mui/system'
 import React from 'react'
@@ -22,7 +23,11 @@ const RerunButton = ({ onClick }: Props) => {
         padding: '1rem',
       }}
     >
-      <StyledRerunButton variant="contained" onClick={onClick}>
+      <StyledRerunButton
+        variant="contained"
+        onClick={onClick}
+        startIcon={<PlayArrowIcon />}
+      >
         Rerun
       </StyledRerunButton>
     </Box>
