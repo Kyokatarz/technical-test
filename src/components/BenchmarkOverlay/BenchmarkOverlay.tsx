@@ -24,8 +24,10 @@ const styles: SxTheme = {
     alignItems: 'center',
   },
   chartWrapper: {
-    minWidth: 700,
-    minHeight: 500,
+    maxWidth: 700,
+    maxHeight: 500,
+    width: '100%',
+    height: '100%',
     marginBottom: (theme) => theme.spacing(5),
   },
   contentWrapper: {
