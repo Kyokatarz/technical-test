@@ -4,15 +4,12 @@ import Paper from '@mui/material/Paper'
 import useAppContext from '../../hooks/useAppContext'
 import TestSuiteHeroImg from './assets/hero_image.jpg'
 import RerunButton from './components/RerunButton'
-import weaveNewData from './helpers/weaveNewData'
 
 const TestSuiteHeroSection = () => {
-  const { setDataToDisplay } = useAppContext()
+  const { reRunTest } = useAppContext()
 
   const handleRerun = () => {
-    const newData = weaveNewData()
-    console.log({ newData })
-    setDataToDisplay(newData)
+    reRunTest()
   }
 
   return (

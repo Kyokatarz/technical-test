@@ -12,6 +12,7 @@ import {
 import { Line } from 'react-chartjs-2'
 
 import getRecentScores from '../../helpers/getRecentScores'
+import useAppContext from '../../hooks/useAppContext'
 import DataTypes from '../../types/data'
 import TileHeader from '../TileHeader'
 
@@ -30,9 +31,9 @@ ChartJS.register(
 )
 
 const RecentResultsChart = ({ data }: Props) => {
-  const resultScore = data.results[0].scores.overallScore.score
-  const resultsCount = 5
-  const recentScores = getRecentScores(resultScore, resultsCount)
+  const { recentResults } = useAppContext()
+  const allRecentScores = getRecentScores(recentResults)
+  const recentScores = allRecentScores.slice(-5)
 
   const avgScore =
     recentScores.map((score) => score.score).reduce((a, b) => a + b, 0) /
