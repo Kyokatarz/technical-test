@@ -1,6 +1,6 @@
 ###
 
-### UL Solutions Web Benmarking
+### UL Solutions Web Benchmarking
 
 To run the app, use:
 `npm run start`
